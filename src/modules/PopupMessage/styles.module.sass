@@ -1,0 +1,77 @@
+@import "src/styles/colors.module.sass"
+
+.popupMessageComponent
+  display: flex
+
+  position: fixed
+  top: -400px
+  left: 50%
+  transform: translate(-50%)
+  width: min(90%, 600px)
+  height: 400px
+  border-radius: 6px
+  background: linear-gradient($midnight-green, $celestial-blue, $asphalt)
+  color: $classic-white
+  transition: top .3s ease-in-out
+  z-index: 300
+  overflow: hidden
+
+  &.--visible
+    top: 77px
+
+  @media only screen and (max-width: 450px)
+    height: auto
+    text-align: center
+    justify-content: space-between
+    flex-direction: column-reverse
+
+    &.--visible
+      top: 30%
+
+.popupMessage
+  margin-top: 40px
+  font-size: 30px
+  display: flex
+  flex-direction: column
+
+  @media only screen and (max-width: 450px)
+    font-size: 28px
+    flex-direction: column
+    margin: 0 0 20px
+
+.infoContainer
+  display: flex
+  flex-direction: column
+  justify-content: space-between
+  padding: 10px 7px
+  flex: 1 1 auto
+
+.imageWrapper
+  width: 200px
+  overflow: hidden
+  display: flex
+  justify-content: center
+  flex: 1 1 auto
+
+  @media only screen and (max-width: 450px)
+    width: 100%
+    height: 150px
+    align-items: center
+    justify-content: unset
+
+.popupMessage__image
+  height: 100%
+  width: auto
+
+  @media only screen and (max-width: 450px)
+    width: 100%
+    height: auto
+
+.popupMessage__number
+  font-weight: bold
+  font-size: 40px
+  color: $text-color
+  margin: 0 5px
+
+.successButton
+  background-color: $midnight-green

@@ -1,0 +1,65 @@
+@import 'src/styles/mixins.module'
+@import 'src/styles/colors.module'
+
+.orderListElement
+  display: flex
+  flex-direction: column
+  height: fit-content
+  justify-content: space-between
+  border-bottom: 1px $light-grey solid
+  padding-bottom: 10px
+  animation: itemAppear 0.3s ease-in-out
+  overflow: hidden
+  flex: 0 0 auto
+  gap: 10px
+
+  @keyframes itemAppear
+    0%
+      height: 0
+    100%
+      height: calc(61px - 10px)
+
+  @media only screen and (max-width: 450px)
+    animation: none
+    height: 60px
+
+.orderListElement__titleContainer
+  display: flex
+  flex-direction: row
+  justify-content: space-between
+  gap: 10px
+
+.orderListElement__priceContainer
+  display: flex
+  flex-direction: row
+  gap: 10px
+  align-items: center
+  select
+    width: 40px
+    border: $celestial-blue 1px solid
+    border-radius: 5px
+    option
+      text-align: center
+
+.element__titleRow
+  display: flex
+  gap: 5px
+
+.element__price
+  @include numberContainer
+  padding: 0 10px
+  min-width: calc(55px - 20px)
+  justify-content: center
+
+.element__title
+  overflow: hidden
+  white-space: pre
+  text-overflow: ellipsis
+  width: 100%
+  line-height: 1
+
+.element__removeItem
+  font-size: 10px
+  cursor: pointer
+
+

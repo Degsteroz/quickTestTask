@@ -1,35 +1,42 @@
-import { useState } from 'react'
-import { Link } from "react-router-dom";
-import reactLogo from './assets/react.svg'
+import React, { useEffect } from 'react'
+import { observer } from 'mobx-react-lite'
+import { Outlet } from 'react-router-dom'
+
+import { useStore } from 'stores/globalStore'
+
+import {
+  Header,
+  OrderList,
+  Layout,
+  PopupMessage,
+} from './modules'
+
 import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
+const App = observer(() => {
+  const { productStore, appStore } = useStore()
+
+  const isLoading = appStore.loading
+  const messageVisible = appStore.isMessageVisible
+  const outletClass = `outlet ${isLoading || messageVisible ? 'loading' : ''}`
+
+  useEffect(() => {
+    productStore.fetchProducts()
+  }, [])
 
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <Link to={'/contact'}>
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </Link>
+    <div className="app">
+      <div className={outletClass}>
+        <Header />
+        <Outlet />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+
+      <OrderList/>
+
+      <Layout />
+      <PopupMessage />
     </div>
   )
-}
+})
 
 export default App

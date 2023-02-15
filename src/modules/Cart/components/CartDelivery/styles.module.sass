@@ -1,0 +1,36 @@
+@import 'src/styles/colors.module.sass'
+
+.deliveryComponent
+  display: flex
+  padding: 10px
+  justify-content: space-between
+  align-items: center
+  background-color: $asphalt
+  border-radius: 6px
+  color: $classic-white
+  position: relative
+  height: 24px
+
+
+.contentContainer
+  display: flex
+  justify-content: space-between
+  align-items: center
+  overflow: hidden
+  position: absolute
+  width: 280px
+  height: 100%
+  animation: ride 1.5s linear
+
+
+  @keyframes ride
+    0%
+      width: 250px
+      left: -290px
+
+    80%
+      width: 250px
+      left: 10px
+
+    100%
+      width: 280px

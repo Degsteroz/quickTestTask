@@ -1,0 +1,56 @@
+.basketComponent {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 50px;
+  align-items: center;
+  font-size: 10px;
+}
+
+.basket__icon {
+  width: 30px;
+  height: auto;
+}
+
+.basket__countComponent {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 10px;
+  align-self: flex-start;
+  border-radius: 10px;
+  background-color: #5299d3;
+  font-weight: 600;
+  color: white;
+  justify-content: center;
+  align-self: flex-end;
+  z-index: 2;
+  width: 20px;
+  height: 15px;
+  padding: 0;
+  margin-bottom: -10px;
+  animation: appear 0.3s ease-in-out;
+}
+@keyframes appear {
+  0% {
+    opacity: 0;
+    margin-right: -15px;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    margin-right: 0;
+  }
+}
+
+.basket__label {
+  display: flex;
+  color: #343434;
+}
+
+.basket__countPlug {
+  height: 15px;
+  margin-bottom: -10px;
+}
+
+/*# sourceMappingURL=styles.module.css.map */

@@ -1,0 +1,21 @@
+@import "src/styles/colors.module.sass"
+
+.cartSummaryComponent
+  display: flex
+  flex-direction: column
+  align-items: center
+  background-color: $classic-white
+  border-radius: 6px
+  padding: 10px 0 10px
+  @media only screen and (max-width: 450px)
+    flex-direction: column-reverse
+
+.buttonWrapper
+  width: calc(100% - 20px)
+
+.cartSummarySeparator
+  height: 1px
+  width: 100%
+  background-color: $light-grey
+  margin: 25px 0
+  opacity: 0.2
