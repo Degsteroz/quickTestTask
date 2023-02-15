@@ -1,0 +1,16 @@
+.productCard {
+  display: flex;
+  flex: 1 1 23%;
+  flex-direction: column;
+  align-items: center;
+  max-width: 23%;
+  padding: 10px;
+  border-radius: 6px;
+  background-color: #535bf2;
+}
+
+.productCard__image {
+  width: 50%;
+}
+
+/*# sourceMappingURL=index.module.css.map */
