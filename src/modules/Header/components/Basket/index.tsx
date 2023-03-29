@@ -1,6 +1,8 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 import BasketIcon from '../../assets/basket.svg'
+
 import styles from './styles.module.sass'
 
 interface BasketInterface {
@@ -10,20 +12,31 @@ interface BasketInterface {
 export default function Basket({
   count,
 } : BasketInterface) {
-  return (
-    <div className={styles.basketComponent}>
-      {!!count && (
-        <div className={styles.basket__countComponent}>
-          {count}
-        </div>
-      )}
+  const countContent = !!count
+    ? (
+      <div className={styles.basket__countComponent}>
+        {count}
+      </div>
+    )
+    : (
+      <div className={styles.basket__countPlug}/>
+    )
 
+  return (
+    <Link
+      className={styles.basketComponent}
+      to={'/contact'}
+    >
+      {countContent}
       <img
         src={BasketIcon}
         className={styles.basket__icon}
         alt=""
       />
-    </div>
 
+      <span className={styles.basket__label}>
+        CART
+      </span>
+    </Link>
   )
 }

@@ -1,24 +1,35 @@
+@import "../../../../styles/colors.module"
+@import "../../../../styles/mixins.module"
+
 .basketComponent
   position: relative
-  display: grid
-  grid-template-columns: 15px 15px 15px
-  grid-template-rows: 15px 15px 15px
+  display: flex
+  flex-direction: column
   width: 50px
+  align-items: center
+
+  font-size: 10px
 
 .basket__icon
-  width: 100%
+  width: 30px
   height: auto
-  grid-column: 1 / 4
-  grid-row: 1 / 4
-  margin: 0 auto
 
 .basket__countComponent
-  display: flex
+  @include numberContainer
   justify-content: center
-  align-items: center
-  grid-row: 1
-  grid-column: 3
-  background-color: aliceblue
-  border-radius: 50%
+  align-self: flex-end
+
   z-index: 2
 
+  width: 20px
+  height: 15px
+  padding: 0
+  margin-bottom: -10px
+
+.basket__label
+  display: flex
+  color: $text-color
+
+.basket__countPlug
+  height: 15px
+  margin-bottom: -10px

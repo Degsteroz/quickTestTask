@@ -1,16 +1,19 @@
 import React from 'react'
 import { observer } from 'mobx-react-lite'
-import './styles/styles.sass'
-import Basket from './components/Basket'
+
 import { useStore } from '../../stores/globalStore'
 
-export const Header = observer(() => {
-  const { productStore } = useStore()
+import Basket from './components/Basket'
 
-  const number = productStore.count
+import styles from './styles/styles.module.sass'
+
+export const Header = observer(() => {
+  const { cartStore } = useStore()
+
+  const number = cartStore.getCartElementCounts
 
   return (
-    <div className="headerComponent">
+    <div className={styles.headerComponent}>
       <Basket count={number} />
     </div>
   )

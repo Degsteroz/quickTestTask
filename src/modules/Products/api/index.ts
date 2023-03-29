@@ -1,9 +1,9 @@
 import { IProduct } from '../Intarfaces'
 
-export const fetchProductsFromApi = async (
-  cursor= 1
-): Promise<Array<IProduct>> => {
-  return fetch(`https://api.escuelajs.co/api/v1/products?offset=${cursor}&limit=10`)
+export const fetchProductsFromApi = async (): Promise<Array<IProduct>> => {
+  const URL = 'https://api.storerestapi.com/products'
+
+  return fetch(URL)
     .then(response => response.json())
-    .then((products: Array<IProduct>) => products)
+    .then((products) => products.data)
 }

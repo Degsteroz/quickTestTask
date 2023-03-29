@@ -2,15 +2,17 @@ import {
   types,
   cast,
 } from 'mobx-state-tree'
+
 import { fetchProductsFromApi } from '../api'
+
 import { IProduct } from '../Intarfaces'
 
 const ProductModel = types.model('ProductModel', {
-  id: types.number,
+  _id: types.string,
   title: types.string,
   price: types.number,
-  description: types.string,
-  images: types.array(types.string)
+  description: types.maybeNull(types.string),
+  image: types.maybeNull(types.string)
 })
 
 
@@ -18,6 +20,7 @@ const ProductStore = types
   .model('ProductStore', {
     products: types.array(ProductModel),
     error: types.maybeNull(types.string),
+    loading: types.boolean,
   })
   .actions((self) => ({
     setProducts: (
@@ -26,9 +29,14 @@ const ProductStore = types
       self.products = cast(products)
     },
     fetchProducts: () => {
-      fetchProductsFromApi(1).then(res => {
-        self.products = cast(res)
-      })
+      self.loading = cast(true)
+      fetchProductsFromApi()
+        .then(res => {
+          self.products = cast(res)
+        })
+        .finally(() => {
+          self.loading = cast(false)
+        })
     },
   }))
   .views(self => ({

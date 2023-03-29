@@ -1,13 +1,31 @@
+@import "../../../../styles/colors.module"
+@import "../../../../styles/mixins.module"
+
 .productCard
   display: flex
-  flex: 1 1 23%
+  flex: 1 1 250px
   flex-direction: column
   align-items: center
-  max-width: 23%
+  height: auto
 
-  padding: 10px
-  border-radius: 6px
-  background-color: #535bf2
 
 .productCard__image
-  width: 50%
+  width: 100%
+  border-radius: 6px
+  margin-bottom: 10px
+
+.productCard__title
+  width: 100%
+  height: 55px
+  white-space: pre-line
+  text-overflow: ellipsis
+  margin: 0
+
+  display: -webkit-box
+  -webkit-line-clamp: 2
+  -webkit-box-orient: vertical
+  overflow: hidden
+
+
+.productCard__priceContainer
+  @include numberContainer
