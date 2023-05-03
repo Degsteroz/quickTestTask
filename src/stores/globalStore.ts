@@ -4,12 +4,14 @@ import {
   unprotect,
 } from 'mobx-state-tree'
 
-import { ProductStore } from '../modules/Products/store'
-import { CartStore } from '../modules/Cart/store'
+import { ProductStore } from 'modules/Products/store'
+import { CartStore } from 'modules/Cart/store'
+import { AppStore } from './appStore'
 
-export const Store = types.model('Counter', {
+export const Store = types.model('GlobalStore', {
   productStore: ProductStore,
   cartStore: CartStore,
+  appStore: AppStore,
 })
 
 let _store: IAnyStateTreeNode
@@ -20,7 +22,11 @@ export const useStore = () => {
         products: [],
         loading: false
       }),
-      cartStore: {}
+      appStore: AppStore.create({
+        loading: false,
+        orderListOpened: false,
+      }),
+      cartStore: {},
     })
 
     unprotect(_store)

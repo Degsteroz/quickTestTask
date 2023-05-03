@@ -1,20 +1,46 @@
 import React from 'react'
 import { observer } from 'mobx-react-lite'
+import { useLocation } from 'react-router-dom'
+import { Squash as Hamburger } from 'hamburger-react'
 
-import { useStore } from '../../stores/globalStore'
+import { useStore } from 'stores/globalStore'
 
-import Basket from './components/Basket'
+import { CART } from 'src/routes/routesPaths'
+
+import Basket from './components/BasketIcon'
+import HomeIcon from './components/HomeIcon'
 
 import styles from './styles/styles.module.sass'
 
-export const Header = observer(() => {
-  const { cartStore } = useStore()
 
-  const number = cartStore.getCartElementCounts
+export const Header = observer(() => {
+  const { cartStore, appStore } = useStore()
+
+  const number = cartStore.cartElementCounts
+  const { orderListOpened, changeOrderListOpenState } = appStore
+
+  const location = useLocation()
+  const isCartPage = location.pathname === CART
+
+  if (isCartPage && orderListOpened) {
+    appStore.changeOrderListOpenState()
+  }
+
 
   return (
     <div className={styles.headerComponent}>
-      <Basket count={number} />
+      {
+        isCartPage
+          ? <HomeIcon />
+          : <Basket count={number} />
+      }
+
+      {!isCartPage && (
+        <Hamburger
+          toggled={orderListOpened}
+          toggle={changeOrderListOpenState}
+        />
+      )}
     </div>
   )
 })

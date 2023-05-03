@@ -1,38 +1,17 @@
-.productCard {
-  display: flex;
-  flex: 1 1 250px;
-  flex-direction: column;
-  align-items: center;
-  height: auto;
-}
+/* Error: Can't find stylesheet to import.
+ *   ,
+ * 1 | @import "src/styles/colors.module"
+ *   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+ *   '
+ *   styles.module.sass 1:9  root stylesheet */
 
-.productCard__image {
-  width: 100%;
-  border-radius: 6px;
-  margin-bottom: 10px;
+body::before {
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
+      "Droid Sans Mono", monospace, monospace;
+  white-space: pre;
+  display: block;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+  content: "Error: Can't find stylesheet to import.\a   \2577 \a 1 \2502  @import \"src/styles/colors.module\"\a   \2502          ^^^^^^^^^^^^^^^^^^^^^^^^^^\a   \2575 \a   index.module.sass 1:9  root stylesheet";
 }
-
-.productCard__title {
-  width: 100%;
-  height: 55px;
-  white-space: pre-line;
-  text-overflow: ellipsis;
-  margin: 0;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-.productCard__priceContainer {
-  display: flex;
-  justify-content: space-between;
-  padding: 5px 10px;
-  align-self: flex-start;
-  border-radius: 10px;
-  background-color: #5299d3;
-  font-weight: 600;
-  color: white;
-}
-
-/*# sourceMappingURL=index.module.css.map */

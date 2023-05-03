@@ -1,6 +1,8 @@
 import React from 'react'
 
-import BasketIcon from '../../../Header/assets/basket.svg'
+import BasketIcon from 'modules/Header/assets/basket.svg'
+
+import ChangeCountComponent from 'src/baseComponents/ChangeCountComponent'
 
 import styles from './styles.module.sass'
 
@@ -34,50 +36,14 @@ const AddToCart = ({
     </div>
   )
 
-  const changeCount = (
-    event: React.MouseEvent<HTMLDivElement>,
-    value: number
-  ) => {
-    event.stopPropagation()
-    event.preventDefault()
-    handleChangeCount(value)
-  }
-
-  const handleIncrementValue = (
-    event: React.MouseEvent<HTMLDivElement>,
-  ) => changeCount(event, 1)
-
-  const handleDecrementValue = (
-    event: React.MouseEvent<HTMLDivElement>,
-  ) => changeCount(event, -1)
-
-  const minusButtonLabel = counterValue === 1 ? 'x' : '-'
-
-  const changeItemCountComponent = (
-    <div className={styles.counterChangeComponent}>
-      <div
-        onClick={handleDecrementValue}
-        className={styles.counterButton}
-      >
-        {minusButtonLabel}
-      </div>
-
-      <span className={styles.itemCount}>{counterValue}</span>
-
-      <div
-        onClick={handleIncrementValue}
-        className={styles.counterButton}
-      >
-        +
-      </div>
-    </div>
-  )
-
 
   return (
     <div className={styles.addToCartComponent}>
       {addToCardButton}
-      {changeItemCountComponent}
+      <ChangeCountComponent
+        counter={counterValue}
+        handleChangeCount={handleChangeCount}
+      />
     </div>
   )
 }

@@ -12,7 +12,8 @@ const ProductModel = types.model('ProductModel', {
   title: types.string,
   price: types.number,
   description: types.maybeNull(types.string),
-  image: types.maybeNull(types.string)
+  image: types.maybeNull(types.string),
+  discount: types.optional(types.number, 0)
 })
 
 
@@ -40,9 +41,9 @@ const ProductStore = types
     },
   }))
   .views(self => ({
-    get count() {
-      return self.products.length > 9 ? '9+' : self.products.length
-    },
+    getProduct(id: string) {
+      return self.products.find(element => element._id === id)
+    }
   }))
 
 export { ProductStore }

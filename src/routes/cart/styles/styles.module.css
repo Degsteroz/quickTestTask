@@ -1,0 +1,9 @@
+.cartPage {
+  margin-top: 67px;
+  display: flex;
+  height: calc(100vh - 107px);
+  padding: 20px;
+  width: calc(100vw - 40px);
+}
+
+/*# sourceMappingURL=styles.module.css.map */

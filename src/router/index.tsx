@@ -1,19 +1,28 @@
-import { createBrowserRouter } from 'react-router-dom'
-import App from '../App'
 import React from 'react'
-import { Products } from '../modules'
-import { ErrorPage } from '../routes'
+import { createBrowserRouter } from 'react-router-dom'
+
+import App from '../App'
+
+import { Products } from 'src/modules'
+import { CartPage, ErrorPage } from '../routes'
+
+import { CART, HOME } from '../routes/routesPaths'
+
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: HOME,
     element: <App />,
     errorElement: <ErrorPage />,
     children: [
       {
-        path: '/',
+        path: HOME,
         element: <Products />,
       },
+      {
+        path: CART,
+        element: <CartPage />
+      }
     ]
   },
 ])

@@ -1,9 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
+import { CART } from 'src/routes/routesPaths'
+
 import BasketIcon from '../../assets/basket.svg'
 
 import styles from './styles.module.sass'
+
 
 interface BasketInterface {
   count: number
@@ -25,7 +28,7 @@ export default function Basket({
   return (
     <Link
       className={styles.basketComponent}
-      to={'/contact'}
+      to={CART}
     >
       {countContent}
       <img

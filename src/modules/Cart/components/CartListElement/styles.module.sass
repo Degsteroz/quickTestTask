@@ -1,0 +1,49 @@
+@import 'src/styles/mixins.module.sass'
+
+.cartElementComponent
+  display: flex
+  align-items: center
+  gap: 20px
+  max-width: 350px
+
+.cartElementComponent__leftBlock
+  display: flex
+  flex-direction: column
+  justify-content: space-between
+  align-items: center
+  height: 100%
+
+.leftBlock__imageContainer
+  display: flex
+  width: 65px
+  height: 50px
+  overflow: hidden
+
+  border-radius: 8px
+
+.imageContainer__image
+  height: 100%
+
+.leftBlock__removeButton
+  @include numberContainer
+  padding: 0 4px
+  margin-top: 5px
+  cursor: pointer
+
+.cartElementComponent__rightBlock
+  display: flex
+  flex-direction: column
+  justify-content: space-between
+  height: 100%
+
+.rightBlock__infoLine
+  display: flex
+  flex-direction: row
+
+  font-size: 18px
+
+.infoLine__price
+  width: 30%
+
+.infoLine__sum
+  margin-left: auto

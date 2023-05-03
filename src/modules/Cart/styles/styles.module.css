@@ -1,0 +1,24 @@
+.cartComponent {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+}
+
+.cartComponent__titleComponent {
+  font-size: 30px;
+  font-weight: bold;
+  display: flex;
+}
+
+.titleComponent__counter {
+  font-size: 12px;
+}
+
+.cartComponent__cartItems {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/*# sourceMappingURL=styles.module.css.map */
