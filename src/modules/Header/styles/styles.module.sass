@@ -1,4 +1,4 @@
-@import "../../../styles/colors.module"
+@import "src/styles/colors.module"
 
 .headerComponent
   width: calc(100vw - 40px)
@@ -8,8 +8,11 @@
   position: fixed
   top: 0
   left: 0
+  z-index: 10
 
   border-bottom: 1px solid $text-color
 
   display: flex
-  justify-content: space-between
+
+.header__hamburgerWrapper
+  margin-left: auto

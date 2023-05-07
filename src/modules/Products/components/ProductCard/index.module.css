@@ -3,7 +3,7 @@
  * 1 | @import "src/styles/colors.module"
  *   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^
  *   '
- *   styles.module.sass 1:9  root stylesheet */
+ *   index.module.sass 1:9  root stylesheet */
 
 body::before {
   font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",

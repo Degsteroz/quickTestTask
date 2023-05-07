@@ -32,9 +32,9 @@ export default function CartListElement({
     image,
   } = element
 
-  const elementSum = formatMoney(count * price)
-  const formattedPrice = formatMoney(price)
   const formattedTitle = formatTitle(title)
+  const elementSum = `= ${formatMoney(count * price)}`
+  const formattedPrice = `${formatMoney(price)} x`
 
   return (
     <div className={styles.cartElementComponent}>
@@ -51,7 +51,7 @@ export default function CartListElement({
           onClick={deleteCartItem}
           className={styles.leftBlock__removeButton}
         >
-          УДАЛИТЬ
+          REMOVE
         </div>
       </div>
 

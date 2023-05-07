@@ -36,10 +36,12 @@ export const Header = observer(() => {
       }
 
       {!isCartPage && (
-        <Hamburger
-          toggled={orderListOpened}
-          toggle={changeOrderListOpenState}
-        />
+        <div className={styles.header__hamburgerWrapper}>
+          <Hamburger
+            toggled={orderListOpened}
+            toggle={changeOrderListOpenState}
+          />
+        </div>
       )}
     </div>
   )

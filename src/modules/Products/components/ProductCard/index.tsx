@@ -1,7 +1,7 @@
 import React from 'react'
 import { observer } from 'mobx-react-lite'
 
-import { IProduct } from '../../Intarfaces'
+import { useStore } from 'stores/globalStore'
 
 import {
   formatMoney,
@@ -10,9 +10,9 @@ import {
   formatDiscount,
 } from 'src/utils'
 
-import { useStore } from 'stores/globalStore'
+import { IProduct } from '../../Intarfaces'
 
-import AddToCart from '../addToCartComponent'
+import AddToCart from '../AddToCartComponent'
 
 import styles from './index.module.sass'
 

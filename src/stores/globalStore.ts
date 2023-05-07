@@ -20,11 +20,11 @@ export const useStore = () => {
     _store = Store.create({
       productStore: ProductStore.create({
         products: [],
-        loading: false
       }),
       appStore: AppStore.create({
         loading: false,
         orderListOpened: false,
+        isMessageVisible: false,
       }),
       cartStore: {},
     })

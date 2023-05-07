@@ -1,17 +1,18 @@
 import React from 'react'
 import { observer } from 'mobx-react-lite'
 
-import { useStore } from '../../stores/globalStore'
+import { useStore } from 'stores/globalStore'
 
 import { IProduct } from './Intarfaces'
 
-import ProductCard from './components/productCard'
+import ProductCard from './components/ProductCard'
 
 import styles from './styles/styles.module.sass'
 
 
 export const Products = observer(() => {
   const { productStore } = useStore()
+
 
   const { products } = productStore
 
@@ -21,7 +22,9 @@ export const Products = observer(() => {
 
   return (
     <div className={styles.productsComponent}>
-      <h1 className={styles.productsComponent__header}>Products</h1>
+      <h1 className={styles.productsComponent__header}>
+        Products
+      </h1>
       <div className={styles.productsContainer}>
         {productsComponents}
       </div>

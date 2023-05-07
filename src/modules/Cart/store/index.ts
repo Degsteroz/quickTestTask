@@ -21,6 +21,13 @@ const CartStore = types
     positions: types.map(CartElement),
   })
   .actions(self =>({
+    setPositions() {
+      const positions = localStorage.getItem('cart')
+
+      if (!positions) return
+
+      self.positions = JSON.parse(positions)
+    },
     addElementToCart(element: {_id: string, price: number}) {
       const cartElement: ICartElement | undefined = self.positions
         .get(element._id)
@@ -31,6 +38,8 @@ const CartStore = types
           count: 1
         })
       }
+
+      localStorage.setItem('cart', JSON.stringify(self.positions))
     },
     changeElementCount(elementId: string, count: number) {
       const cartElement: ICartElement | undefined = self.positions
@@ -42,6 +51,8 @@ const CartStore = types
       if (!cartElement.count) {
         self.positions.delete(elementId)
       }
+
+      localStorage.setItem('cart', JSON.stringify(self.positions))
     },
     setElementCount(elementId: string, value: number) {
       const cartElement: ICartElement | undefined = self.positions
@@ -49,12 +60,18 @@ const CartStore = types
       if (!cartElement) return
 
       cartElement.changeCount(value)
+
+      localStorage.setItem('cart', JSON.stringify(self.positions))
     },
     deleteItem(elementId: string) {
       self.positions.delete(elementId)
+
+      localStorage.setItem('cart', JSON.stringify(self.positions))
     },
     clearCart() {
       self.positions = cast({})
+
+      localStorage.setItem('cart', JSON.stringify(self.positions))
     }
   }))
   .views(self => ({

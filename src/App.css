@@ -15,4 +15,13 @@ html,
   align-items: center;
   width: 100%;
   min-height: 100%;
+  background-color: #f7f8f9;
+}
+
+.outlet {
+  transition: filter 0.2s ease-in-out;
+}
+
+.outlet.loading {
+  filter: blur(8px);
 }

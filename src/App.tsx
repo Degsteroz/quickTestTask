@@ -4,12 +4,21 @@ import { Outlet } from 'react-router-dom'
 
 import { useStore } from 'stores/globalStore'
 
-import { Header, OrderList } from './modules'
+import {
+  Header,
+  OrderList,
+  Layout,
+  PopupMessage,
+} from './modules'
 
 import './App.css'
 
 const App = observer(() => {
-  const { productStore } = useStore()
+  const { productStore, appStore } = useStore()
+
+  const isLoading = appStore.loading
+  const messageVisible = appStore.isMessageVisible
+  const outletClass = `outlet ${isLoading || messageVisible ? 'loading' : ''}`
 
   useEffect(() => {
     productStore.fetchProducts()
@@ -17,9 +26,15 @@ const App = observer(() => {
 
   return (
     <div className="app">
-      <Header />
+      <div className={outletClass}>
+        <Header />
+        <Outlet />
+      </div>
+
       <OrderList/>
-      <Outlet />
+
+      <Layout />
+      <PopupMessage />
     </div>
   )
 })

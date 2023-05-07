@@ -1,6 +1,6 @@
 import React from 'react'
 
-import BasketIcon from 'modules/Header/assets/basket.svg'
+import BasketIcon from 'assets/basket.svg'
 
 import ChangeCountComponent from 'src/baseComponents/ChangeCountComponent'
 

@@ -77,7 +77,7 @@ const OrderListElement = ({
           className={styles.element__removeItem}
           onClick={deleteCartItem}
         >
-          Удалить
+          Remove
         </div>
       </div>
 

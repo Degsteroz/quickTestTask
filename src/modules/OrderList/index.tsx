@@ -2,9 +2,9 @@ import React from 'react'
 import { observer } from 'mobx-react-lite'
 
 import { useStore } from 'stores/globalStore'
+import EmptyListComponent from 'src/baseComponents/EmptyListComponent'
 
 import OrderListElement from './components/OrderListElement'
-import EmptyListComponent from 'src/baseComponents/EmptyListComponent'
 
 import styles from './styles/styles.module.sass'
 
@@ -42,6 +42,7 @@ export const OrderList = observer(() => {
           product={product}
           changeCount={changeCount}
           deleteCartItem={deleteCartItem}
+          key={id}
         />
       )
     })
@@ -58,13 +59,13 @@ export const OrderList = observer(() => {
         </div>
 
         <div className={styles.orderListComponent__summary}>
-          <span>Всего элементов: {elementCount}</span>
-          <span>Сумма: {elementSum}</span>
+          <span>Items: {elementCount}</span>
+          <span>Sum: {elementSum}</span>
           <span
             className={styles.summary__clearButton}
             onClick={cartStore.clearCart}
           >
-          Очистить
+          Clear
           </span>
         </div>
       </>

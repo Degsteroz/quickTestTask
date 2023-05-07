@@ -15,13 +15,13 @@ export default function EmptyListComponent() {
 
       <div className={styles.emptyList__title}>
         <div>
-          Кажется, ваша корзина пуста.
+          Your cart is empty!
         </div>
         <div>
-          Можете попробовать что-нибудь добавить
+          Try to add something
         </div>
         <div className={styles.emptyList__subtitle}>
-          (если получится)
+          (if you can)
         </div>
       </div>
     </div>

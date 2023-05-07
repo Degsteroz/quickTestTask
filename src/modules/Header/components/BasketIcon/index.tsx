@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 import { CART } from 'src/routes/routesPaths'
 
-import BasketIcon from '../../assets/basket.svg'
+import BasketIcon from 'assets/basket.svg'
 
 import styles from './styles.module.sass'
 

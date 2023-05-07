@@ -16,11 +16,15 @@ export function formatDiscount(discount: number) {
 }
 
 export function generateOldPrice (price: number, discount: number) {
-  return Math.floor((price / (1 - (discount as number))))
+  return Math.floor(price / (1 - discount))
 }
 
 export function getDefaultImage () {
   const imageIndex = Math.floor(Math.random() * DEFAULT_IMAGE.length)
 
   return DEFAULT_IMAGE[imageIndex]
+}
+
+export function getCartHeaderByCount (count: number) {
+  return `${count} item${count > 1 ? 's' : ''}`
 }

@@ -1,0 +1,45 @@
+@import 'src/styles/colors.module'
+
+.cartClearComponent
+  display: flex
+  flex-direction: column
+
+.clearCartButton
+  font-size: 14px
+  text-align: center
+  color: $crimson
+  cursor: pointer
+
+.confirmComponent
+  height: 0
+  padding: 0
+  overflow: hidden
+  transition: all .4s ease-in-out
+
+  &.--visible
+    height: 100px
+    padding: 10px 0
+
+.confirmMessage
+  font-size: 14px
+  text-align: center
+  margin-bottom: 10px
+
+.buttonContainer
+  display: flex
+  justify-content: center
+  gap: 20px
+
+.separator
+  width: 100%
+  height: 1px
+  background-color: $light-grey
+  opacity: 0.2
+  margin-bottom: 10px
+
+.declineButton,
+.confirmButton
+  width: 50%
+
+.confirmButton
+  background-color: $crimson

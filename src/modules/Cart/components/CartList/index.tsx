@@ -1,16 +1,19 @@
 import React from 'react'
+import { observer } from 'mobx-react-lite'
 
 import { useStore } from 'stores/globalStore'
 
 import CartListElement from '../CartListElement'
+import CartDelivery from '../CartDelivery'
 
 import styles from './styles.module.sass'
+
 
 interface ICartList {
   positionsKeys: string[]
 }
 
-export const CartList = ({
+const CartList = observer(({
   positionsKeys
 }: ICartList) => {
   const {
@@ -18,7 +21,7 @@ export const CartList = ({
     productStore,
   } = useStore()
 
-  const renderOrderList = (key: string) => {
+  const renderOrderList = (key: string, index: number) => {
     const element = {
       ...productStore.getProduct(key),
       ...cartStore.getCartItem(key)
@@ -33,13 +36,24 @@ export const CartList = ({
       cartStore.deleteItem(_id)
     }
 
+    const elementKey = `${index}__${_id}`
+
     return (
-      <CartListElement
-        element={element}
-        deleteCartItem={deleteCartItem}
-        changeCount={changeCount}
-        key={_id}
-      />
+      <div
+        className={styles.cartListWrapper}
+        key={elementKey}
+      >
+        <CartListElement
+          element={element}
+          deleteCartItem={deleteCartItem}
+          changeCount={changeCount}
+        />
+
+        <div
+          className={styles.separator}
+          key={`separator__${_id}`}
+        />
+      </div>
     )
   }
 
@@ -48,7 +62,10 @@ export const CartList = ({
 
   return (
     <div className={styles.cartListComponent}>
+      <CartDelivery />
       {orderListElements}
     </div>
   )
-}
+})
+
+export default CartList

@@ -1,8 +1,15 @@
+@import 'src/styles/colors.module.sass'
+
 .cartComponent
   display: flex
   flex-direction: column
+  position: relative
   gap: 15px
   width: 100%
+  min-height: calc(100vh - 107px)
+
+  @media only screen and (max-width: 450px)
+    min-height: 0
 
 .cartComponent__titleComponent
   font-size: 30px
@@ -12,7 +19,34 @@
 .titleComponent__counter
   font-size: 12px
 
-.cartComponent__cartItems
+.cartComponent__infoBlock
+  display: flex
+  flex-direction: row
+  gap: 15px
+
+  @media only screen and (max-width: 450px)
+    flex-direction: column
+
+.infoBlock__leftBlock
   display: flex
   flex-direction: column
-  gap: 15px
+  flex: 2 1 auto
+
+.infoBlock__rightBlock
+  display: flex
+  position: sticky
+  top: 147px
+  flex-direction: column
+  flex: 1 0 15%
+  gap: 10px
+  height: 400px
+
+  @media only screen and (max-width: 450px)
+    flex-direction: column-reverse
+
+.leftBlock__bonuses
+  text-align: center
+  background-color: $classic-white
+  border-radius: 6px
+  padding: 10px
+  font-size: 20px

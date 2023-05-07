@@ -1,7 +1,10 @@
 import {
   types,
   cast,
+  getParent,
 } from 'mobx-state-tree'
+
+import { Store } from 'stores/globalStore'
 
 import { fetchProductsFromApi } from '../api'
 
@@ -21,7 +24,6 @@ const ProductStore = types
   .model('ProductStore', {
     products: types.array(ProductModel),
     error: types.maybeNull(types.string),
-    loading: types.boolean,
   })
   .actions((self) => ({
     setProducts: (
@@ -30,13 +32,16 @@ const ProductStore = types
       self.products = cast(products)
     },
     fetchProducts: () => {
-      self.loading = cast(true)
+      const globalStore = getParent<typeof Store>(self)
+      globalStore.appStore.loading = true
       fetchProductsFromApi()
         .then(res => {
           self.products = cast(res)
+
+          globalStore.cartStore.setPositions()
         })
         .finally(() => {
-          self.loading = cast(false)
+          globalStore.appStore.loading = false
         })
     },
   }))
